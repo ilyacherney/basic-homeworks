@@ -16,7 +16,7 @@ public class MainApp {
             System.out.println("------------------------------------");
             System.out.println(plate);
             System.out.println(cat);
-            System.out.println(cat.name + " ест");
+            System.out.println(cat.getName() + " ест");
             cat.eat(plate);
             System.out.println(plate);
             System.out.println(cat);

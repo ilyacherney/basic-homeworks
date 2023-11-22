@@ -1,8 +1,8 @@
 package ru.otus.ilyacherney.homeworks.homework12;
 
 public class Plate {
-    int maxFoodAmount;
-    int currentFoodAmount;
+    private int maxFoodAmount;
+    private int currentFoodAmount;
 
     public Plate(int foodAmountMax) {
         this.maxFoodAmount = foodAmountMax;
@@ -16,7 +16,6 @@ public class Plate {
 
     public boolean takeFood (int takingFoodAmount) {
         if (currentFoodAmount - takingFoodAmount < 0) {
-            currentFoodAmount = 0;
             return false;
         } else {
             currentFoodAmount -= takingFoodAmount;

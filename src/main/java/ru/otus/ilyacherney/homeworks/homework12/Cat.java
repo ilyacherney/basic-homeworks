@@ -1,14 +1,18 @@
 package ru.otus.ilyacherney.homeworks.homework12;
 
 public class Cat {
-    String name;
-    int appetite;
-    boolean isFull;
+    private String name;
+    private int appetite;
+    private boolean isFull;
 
     public Cat (String name, int appetite) {
         this.name = name;
         this.appetite = appetite;
         isFull = false;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void eat (Plate plate) {
