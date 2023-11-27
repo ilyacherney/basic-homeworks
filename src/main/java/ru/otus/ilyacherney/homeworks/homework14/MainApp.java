@@ -9,15 +9,14 @@ public class MainApp {
 //                {"5", "6", "7", "8"},
 //                {"9", "10", "11", "12"}
 //        };
-//        method1(arr1);
+//        System.out.println(method1(arr1));
 
         String[][] arr2 = new String[][]{
                 {"1", "2", "3", "4"},
-                {"5", "6", "7", "8"},
                 {"9", "10", "11", "12"},
                 {"13", "14", "15", "16"}
         };
-        method1(arr2);
+        System.out.println(method1(arr2));
 
         String[][] arr3 = new String[][]{
                 {"1", "1", "1", "1"},
@@ -25,7 +24,7 @@ public class MainApp {
                 {"1", "1", "1", "1"},
                 {"1", "1", "1", "1"}
         };
-        method1(arr3);
+        System.out.println(method1(arr3));
 
         String[][] arr4 = new String[][]{
                 {"1", "asdag", "1", "1"},
@@ -33,11 +32,12 @@ public class MainApp {
                 {"1", "1", "1", "1"},
                 {"1", "1", "1", "1"}
         };
-        method1(arr4);
+        System.out.println(method1(arr4));
     }
-    public static void method1(String[][] arr) throws AppArraySizeException, AppArrayDataException {
-        if (arr.length != 4 || arr[0].length != 4) {
-            throw new AppArraySizeException();
+    public static int method1(String[][] arr) {
+        if (arr.length != 4) throw new AppArraySizeException();
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].length != 4) throw new AppArraySizeException();
         }
 
         int sum = 0;
@@ -50,6 +50,6 @@ public class MainApp {
                 }
             }
         }
-        System.out.println(sum);
+        return sum;
     }
 }
