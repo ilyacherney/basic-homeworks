@@ -15,11 +15,11 @@ public class MainApp {
         list.add(70);
         list.add(80);
         list.add(90);
-//        System.out.println(list);
+        System.out.println(list);
 
         SearchTreeImpl searchTree = new SearchTreeImpl(list);
         System.out.println(searchTree);
-//        System.out.println(searchTree.find(10));
+        System.out.println(searchTree.find(10));
 
         System.out.println(searchTree.getSortedList());
     }

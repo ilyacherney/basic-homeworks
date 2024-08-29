@@ -51,15 +51,13 @@ public class SearchTreeImpl<T extends Comparable<T>> implements SearchTree<T> {
     }
 
     public List<T> getSmallestNode(List<T> sortedList, TreeNode<T> treeNode) {
+        if (treeNode != null) {
         System.out.println(sortedList);
         System.out.println(treeNode.value);
-        if (treeNode.left != null) {
             getSmallestNode(sortedList, treeNode.left);
-        }
-        if (treeNode.right != null) {
+            sortedList.add(treeNode.value);
             getSmallestNode(sortedList, treeNode.right);
         }
-        sortedList.add(treeNode.value);
         return sortedList;
     }
 
