@@ -10,4 +10,5 @@ public class ClientApp {
         } catch (IOException e) {
             System.out.println("Ошибка клиента: " + e.getMessage());
         }
+    }
 }
