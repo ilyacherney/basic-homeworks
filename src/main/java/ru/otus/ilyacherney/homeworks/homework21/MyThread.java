@@ -15,11 +15,11 @@ public class MyThread extends Thread {
     public void run() {
 
 
-        for (int i = start; i <= end; i++) {
+        for (int i = start; i < end; i++) {
             arr[i] = 1.14 * Math.cos(i) * Math.sin(i * 0.2) * Math.cos(i / 1.2);
 
             String threadName = Thread.currentThread().getName();
-            System.out.println(threadName + ": " + arr[i]);
+//            System.out.println(threadName + ": " + arr[i]);
         }
 
 

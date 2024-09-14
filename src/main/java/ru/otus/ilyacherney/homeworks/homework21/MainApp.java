@@ -22,7 +22,7 @@ public class MainApp {
     public static void countWithOneThread(double[] arr) {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = 1.14 * Math.cos(i) * Math.sin(i * 0.2) * Math.cos(i / 1.2);
-            System.out.println(arr[i]);
+//            System.out.println(arr[i]);
         }
 
     }
