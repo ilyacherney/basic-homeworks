@@ -26,9 +26,6 @@ public class MainApp {
 
         transferResults(appleBox, appleBox2);
         transferResults(appleBox2, fruitBox);
-//        transferResults(orangeBox, appleBox2); //не скомпилируется
-//        transferResults(fruitBox.transferFruits(appleBox2)); //обратно тоже не скомпилируется
-
     }
 
     public static void printResults(Box<?> box1, Box<?> box2) {
@@ -42,7 +39,7 @@ public class MainApp {
         System.out.println("box1 fruits: " + box1.getFruits());
         System.out.println("box2 fruits: " + box2.getFruits());
         System.out.println("transferring");
-        box1.transferFruits(box2); // No cast needed
+        box1.transferFruits(box2);
         System.out.println("box1 fruits: " + box1.getFruits());
         System.out.println("box2 fruits: " + box2.getFruits());
         System.out.println("-------");
