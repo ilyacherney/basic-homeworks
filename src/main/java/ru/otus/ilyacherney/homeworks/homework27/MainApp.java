@@ -1,0 +1,71 @@
+package ru.otus.ilyacherney.homeworks.homework27;
+
+import javax.xml.transform.Source;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class MainApp {
+    public static void main(String[] args) throws IOException {
+        File file = getFile();
+        char[] sequence = getSequence();
+        char[] text = getFileText(file);
+        int counter = countSequenceOccurrences(sequence, text);
+        System.out.println("Последовательность втсречается " + counter + " раз.");
+    }
+
+    public static File getFile() {
+        System.out.println("Введите имя файла:");
+        Scanner scanner = new Scanner(System.in);
+//        String fileName = scanner.nextLine();
+        String fileName = "file1.txt";
+        return new File(fileName);
+    }
+
+    public static char[] getSequence() {
+        System.out.println("Введите последовательность символов для подсчета:");
+        Scanner scanner = new Scanner(System.in);
+        String sequence = scanner.nextLine();
+//        String sequence = "символ";
+        return sequence.toCharArray();
+    }
+
+    public static char[] getFileText(File file) throws IOException {
+        List<Character> text = new ArrayList<>();
+        FileReader reader = new FileReader(file);
+        int buffer;
+        while ((buffer = reader.read()) != -1) {
+            text.add((char) buffer);
+        }
+
+        char[] charArr = new char[text.size()];
+        for(int i = 0; i < text.size(); i++) {
+            charArr[i] = text.get(i);
+        }
+        return charArr;
+    }
+
+    public static int countSequenceOccurrences(char[] sequence, char[] text) {
+        int counter = 0;
+        int textIndex = 0;
+        int sequenceIndex = 0;
+
+        for (textIndex = 0; textIndex < text.length; textIndex++) {
+            if (sequence[sequenceIndex] == text[textIndex]) {
+                if (sequenceIndex == sequence.length -1) {
+                    counter++;
+                    continue;
+                }
+                sequenceIndex++;
+            } else {
+                sequenceIndex = 0;
+            }
+        }
+        return counter;
+    }
+}
