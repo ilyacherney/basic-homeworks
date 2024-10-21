@@ -1,10 +1,7 @@
 package ru.otus.ilyacherney.homeworks.homework27;
 
 import javax.xml.transform.Source;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +19,6 @@ public class MainApp {
     public static File getFile() {
         System.out.println("Введите имя файла:");
         Scanner scanner = new Scanner(System.in);
-//        String fileName = scanner.nextLine();
         String fileName = "file1.txt";
         return new File(fileName);
     }
@@ -31,16 +27,16 @@ public class MainApp {
         System.out.println("Введите последовательность символов для подсчета:");
         Scanner scanner = new Scanner(System.in);
         String sequence = scanner.nextLine();
-//        String sequence = "символ";
         return sequence.toCharArray();
     }
 
     public static char[] getFileText(File file) throws IOException {
         List<Character> text = new ArrayList<>();
-        FileReader reader = new FileReader(file);
-        int buffer;
-        while ((buffer = reader.read()) != -1) {
-            text.add((char) buffer);
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            int charAsInt;
+            while ((charAsInt = reader.read()) != -1) {
+                text.add((char) charAsInt);
+            }
         }
 
         char[] charArr = new char[text.size()];
